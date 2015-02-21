@@ -63,15 +63,13 @@ function checkIfValid($source) {
 
 // to find the sub-arrays of cities/states and categories, as their indexes may change
 function findArrayByName($name, $source) {
-    $found = array();
     foreach ($source as $key => $val) {
-        if (!isset($val['name']) || !isset($val['value'])) return false;
+        if (!isset($val['name']) || !isset($val['value'])) break; // if the current array doesn't include the keys we need, take the next one
         if ($val['name'] === $name) {
-            $found = $val['value'];
-            break;
+            return $val['value']; // found it, return values
         }
     }
-    return $found;
+    return false;
 }
 
 function output($data) {

@@ -147,8 +147,8 @@ class OLXParser {
                     $tmp = array();
                     foreach ($this->result as $key => $val) {
                         array_push($tmp, implode("\n",$this->buildCountryArrayCSV($key)));
-                        $res = implode("\n\n",$tmp);
                     }
+                    $res = implode("\n\n",$tmp);
                 }
             break;
             default: // json
